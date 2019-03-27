@@ -1,4 +1,4 @@
-;;; fuck.el --- Punctuation replacing -*- lexical-binding: t; -*-
+;;; fuck.el --- Test of converting punctuations -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019 Gong Qijian <gongqijian@gmail.com>
 

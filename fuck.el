@@ -1,4 +1,4 @@
-;;; fuck.el --- Punctuation replacing -*- lexical-binding: t; -*-
+;;; fuck.el --- Convert punctuations -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019 Gong Qijian <gongqijian@gmail.com>
 
@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; Convert full-width/half-width panctuations before or around point.
+;; Convert full-width/half-width punctuations before or around point.
 
 ;;; Change Log:
 
@@ -64,7 +64,7 @@
     ("\"" . (:replace ("“" . "”") :next-fn looking-at))))
 
 (defun fuck--convert-punctuations (&optional looking-fn looking-next-p)
-  "Convert full-width/half-width panctuations before or around point.
+  "Convert full-width/half-width punctuations before or around point.
 
 if LOOKING-FN can be `looking-back' (default) or `looking-at'.
 if LOOKING-NEXT-P is not nil, stop looking next."
