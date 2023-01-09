@@ -4,7 +4,7 @@
 
 ;; Author: Gong Qijian <gongqijian@gmail.com>
 ;; Created: 2019/03/25
-;; Version: 0.1.0
+;; Version: 0.1.1
 ;; Package-Requires: ((emacs "24.4"))
 ;; URL: https://github.com/twlz0ne/fuck
 ;; Keywords: convenience
@@ -28,6 +28,7 @@
 
 ;;; Change Log:
 
+;;  0.1.1  2023/01/09  Add variable `fuck-regexp'
 ;;  0.1.0  2019/03/25  Initial version.
 
 ;;; Code:
@@ -63,12 +64,15 @@
     ("'"  . (:replace ("‘" . "’") :next-fn looking-at))
     ("\"" . (:replace ("“" . "”") :next-fn looking-at))))
 
+(defvar fuck-regexp "\\s-*\\([[:punct:]]\\)\\s-*"
+  "Regex to looking for punctuations.")
+
 (defun fuck--convert-punctuations (&optional looking-fn looking-next-p)
   "Convert full-width/half-width punctuations before or around point.
 
 if LOOKING-FN can be `looking-back' (default) or `looking-at'.
 if LOOKING-NEXT-P is not nil, stop looking next."
-  (when (funcall (or looking-fn 'looking-back) "\\s-*\\([[:punct:]]\\)\\s-*")
+  (when (funcall (or looking-fn 'looking-back) fuck-regexp)
     (let ((replace (cdr (assoc (match-string-no-properties 1) fuck-paires))))
       (when replace
         (save-excursion
